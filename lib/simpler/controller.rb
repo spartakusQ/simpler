@@ -66,5 +66,13 @@ module Simpler
       @request.params.update(@request.env['simpler.params'])
     end
 
+    def headers
+      @response.headers
+    end
+
+    def status(status_code)
+      @response.status = status_code
+    end
+    
   end
 end
