@@ -1,11 +1,11 @@
 class TestsController < Simpler::Controller
 
   def index
-    @time = Time.now
+    @test = params
   end
 
   def create
-
+    @test = params
   end
 
 end
