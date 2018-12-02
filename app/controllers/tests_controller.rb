@@ -8,4 +8,8 @@ class TestsController < Simpler::Controller
     @test = params
   end
 
+  def show
+    @test = Test.first(id: params[:id])
+  end
+
 end
