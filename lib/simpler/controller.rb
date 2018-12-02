@@ -17,7 +17,7 @@ module Simpler
 
       # set_default_headers
       set_default_headers
-      select_format
+      set_content_type
       send(action)
       write_response
 
@@ -53,7 +53,7 @@ module Simpler
       @request.env['simpler.template'] = template
     end
 
-    def select_format
+    def set_content_type
       template = @request.env['simpler.template']
        if template.is_a? Hash
         case template.keys.first
@@ -73,6 +73,6 @@ module Simpler
     def status(status_code)
       @response.status = status_code
     end
-    
+
   end
 end

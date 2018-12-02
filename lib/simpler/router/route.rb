@@ -4,12 +4,11 @@ module Simpler
 
       attr_reader :controller, :action, :params
 
-      def initialize(method, full_path, controller, action, params)
+      def initialize(method, full_path, controller, action)
         @method = method
         @path = full_path
         @controller = controller
         @action = action
-        @params = params
       end
 
       def match?(method, path)

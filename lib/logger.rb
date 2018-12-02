@@ -13,6 +13,10 @@ require 'logger'
     [status, headers, response]
   end
 
+  def parameters(env)
+    "Parameters: #{env['simpler.controller']}"
+  end
+
    private
 
   def message(env, status, headers)
@@ -25,10 +29,6 @@ require 'logger'
 
   def handler(env)
     "Handler:    #{env['simpler.controller'].name.capitalize}Controller##{env['simpler.action']}"
-  end
-
-  def parameters(env)
-    "Parameters: #{env['simpler.controller'].send :params}"
   end
 
   def response(env, status, headers)
