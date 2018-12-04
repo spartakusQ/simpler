@@ -9,7 +9,7 @@ module Simpler
 
     include Singleton
 
-    attr_reader :db
+    attr_reader :db, :params
 
     def initialize
       @router = Router.new
@@ -29,7 +29,7 @@ module Simpler
     def call(env)
       route = @router.route_for(env)
       if route
-        env['simpler.controller.params'] = route.parse_params(env['PATH_INFO'])
+        env['simpler.route_params'] = route.parse_params(env['PATH_INFO'])
         controller = route.controller.new(env)
         action = route.action
         make_response(controller, action)
